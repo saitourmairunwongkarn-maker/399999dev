@@ -1,13 +1,11 @@
 import "./globals.css"
-import Navbar from "./component/Navbar"
-import Footer from "./component/Footer"
-import Announcement from "./component/Announcement"
+import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
+import Announcement from "@/components/Announcement"
 
-// ✅ Metadata สำหรับ SEO + Social Media
 export const metadata = {
   title: "MyApp",
   description: "Business diary template solution",
-  metadataBase: new URL("https://myapp.com"), // 👉 เปลี่ยนเป็น domain จริงตอน deploy
   keywords: ["Business", "Diary", "Template", "Next.js", "Tailwind"],
   authors: [{ name: "MyApp Team" }],
   themeColor: "#2563eb",
@@ -18,7 +16,7 @@ export const metadata = {
     siteName: "MyApp",
     images: [
       {
-        url: "/og-image.png", // 👉 วางไฟล์ใน public/
+        url: "/og-image.png", // 👉 วางไฟล์ไว้ใน public/
         width: 1200,
         height: 630,
         alt: "MyApp Preview",
@@ -45,7 +43,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className="flex flex-col min-h-screen antialiased bg-gray-50 text-gray-900">
-        
         {/* 🔔 แบนเนอร์ประกาศ */}
         <Announcement />
 

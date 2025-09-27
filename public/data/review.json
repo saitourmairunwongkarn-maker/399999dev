@@ -1,0 +1,25 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "name": "สมชาย",
+      "role": "ผู้ก่อตั้ง Startup",
+      "avatar": "/Review/review1.webp",
+      "comment": "แพลตฟอร์มนี้ช่วยให้เราประหยัดเวลาในการพัฒนาเว็บไปได้มาก"
+    },
+    {
+      "id": 2,
+      "name": "มะลิ",
+      "role": "นักออกแบบ UX",
+      "avatar": "/Review/review2.webp",
+      "comment": "ใช้งานง่าย และปรับแต่งได้ตรงกับความต้องการของลูกค้า"
+    },
+    {
+      "id": 3,
+      "name": "John Doe",
+      "role": "CTO บริษัทซอฟต์แวร์",
+      "avatar": "/Review/review3.webp",
+      "comment": "ประสิทธิภาพสูงและระบบเสถียรมาก เหมาะกับ production จริง"
+    }
+  ]
+}

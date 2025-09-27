@@ -1,5 +1,5 @@
 {
-  "name": "9-000-000-webapp",
+  "name": "devbaanban",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "daisyui": "^4.12.10",
+    "framer-motion": "^12.23.22",
+    "lucide-react": "^0.544.0",
     "next": "latest",
+    "next-cloudinary": "^6.16.0",
     "react": "latest",
     "react-dom": "latest",
     "tailwindcss-animate": "^1.0.7"

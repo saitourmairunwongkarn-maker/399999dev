@@ -1,13 +1,19 @@
-import Hero from "./component/Hero"
-import Service from "./component/Service"
-import Review from "./component/Review"
+"use client";
 
-export default function Page() {
+import Hero from "@/components/Hero";
+import Features from "@/components/Features";
+import ServiceSection from "@/components/Service/ServiceSection";
+import ReviewSection from "@/components/Review/ReviewSection";
+import CTA from "@/components/CTA";
+
+export default function HomePage() {
   return (
-    <>
+    <main>
       <Hero />
-      <Service />
-      <Review />
-    </>
-  )
+      <Features />
+      <ServiceSection />
+      <ReviewSection />
+      <CTA />
+    </main>
+  );
 }

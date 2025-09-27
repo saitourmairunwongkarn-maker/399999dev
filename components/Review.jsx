@@ -1,24 +1,24 @@
 export default function Review() {
   const reviews = [
     {
-      text: "This template boosted our startup site in no time!",
-      author: "Happy User",
+      text: "เทมเพลตนี้ช่วยให้ Startup ของเราพร้อมใช้งานในเวลาอันสั้น!",
+      author: "ผู้ใช้งานจริง",
     },
     {
-      text: "Clean design and very easy to customize.",
-      author: "Business Owner",
+      text: "ดีไซน์สะอาดและปรับแต่งได้ง่ายมาก",
+      author: "เจ้าของธุรกิจ",
     },
     {
-      text: "The best solution for building business diary apps.",
-      author: "Developer Team",
+      text: "โซลูชันที่ดีที่สุดสำหรับสร้าง Diary App ธุรกิจ",
+      author: "ทีมพัฒนา",
     },
-  ]
+  ];
 
   return (
-    <section id="review" className="py-16 px-6 bg-gray-50">
+    <section id="reviews" className="py-16 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-semibold mb-10 text-center text-gray-800">
-          Customer Reviews
+          รีวิวจากลูกค้า
         </h2>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -36,5 +36,5 @@ export default function Review() {
         </div>
       </div>
     </section>
-  )
+  );
 }
