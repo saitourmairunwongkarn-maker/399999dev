@@ -2,7 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* custom global styles */
+/* =======================
+   🌍 Global Styles
+======================= */
+
+/* ฟอนต์หลัก (backup เผื่อ Inter โหลดไม่ทัน) */
 body {
-  font-family: system-ui, sans-serif;
+  @apply bg-base-100 font-sans text-neutral;
+}
+
+/* Heading styles */
+h1 {
+  @apply text-4xl font-bold text-primary;
+}
+h2 {
+  @apply text-3xl font-semibold text-secondary;
+}
+h3 {
+  @apply text-2xl font-semibold text-accent;
+}
+
+/* Paragraph */
+p {
+  @apply text-base leading-relaxed text-neutral;
+}
+
+/* =======================
+   🌗 Dark Mode Support
+======================= */
+html.dark body {
+  @apply bg-neutral text-base-100;
+}
+
+/* =======================
+   🔘 Buttons
+======================= */
+.btn-primary {
+  @apply rounded-lg bg-primary px-4 py-2 font-semibold text-base-100 shadow-md transition hover:bg-primary/90;
+}
+.btn-secondary {
+  @apply rounded-lg bg-secondary px-4 py-2 font-semibold text-base-100 transition hover:bg-secondary/90;
+}
+.btn-accent {
+  @apply rounded-lg bg-accent px-4 py-2 font-semibold text-neutral transition hover:bg-accent/90;
+}
+
+/* =======================
+   🔔 Alerts
+======================= */
+.alert-info {
+  @apply rounded-lg bg-info px-4 py-3 text-white;
+}
+.alert-success {
+  @apply rounded-lg bg-success px-4 py-3 text-white;
+}
+.alert-warning {
+  @apply rounded-lg bg-warning px-4 py-3 text-neutral;
+}
+.alert-error {
+  @apply rounded-lg bg-error px-4 py-3 text-white;
+}
+
+/* =======================
+   🌟 Utilities
+======================= */
+.section-padding {
+  @apply px-6 py-16 lg:px-12;
+}
+
+.card {
+  @apply rounded-2xl border border-neutral/10 bg-base-100 p-6 shadow-lg;
 }

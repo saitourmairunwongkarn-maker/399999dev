@@ -1,117 +1,153 @@
-"use client"
+'use client'
 
-import { motion } from "framer-motion"
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone } from "lucide-react"
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+} from 'lucide-react'
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+const sectionVariant = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 }
 
 export default function Footer() {
   return (
-    <footer className="footer bg-base-200 text-base-content p-10 mt-16">
-      {/* Brand */}
-      <motion.aside
-        variants={fadeIn}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-      >
-        <h2 className="text-2xl font-bold">MyApp</h2>
-        <p className="text-sm text-base-content/70 max-w-xs">
-          โซลูชันจัดการธุรกิจที่ออกแบบมาเพื่อความง่ายและมีประสิทธิภาพ
-        </p>
-      </motion.aside>
+    <footer
+      id="footer"
+      className="mt-20 border-t border-base-300 bg-base-200 text-base-content dark:bg-gray-950 dark:text-gray-300"
+    >
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-12 sm:grid-cols-2 md:grid-cols-4">
+        {/* Brand */}
+        <motion.div
+          variants={sectionVariant}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <h2 className="text-2xl font-bold text-primary">MyApp</h2>
+          <p className="mt-2 text-sm text-base-content/70 dark:text-gray-400">
+            โซลูชันที่ช่วยจัดการธุรกิจให้ง่ายขึ้น พร้อมประสิทธิภาพสูงสุด
+          </p>
+        </motion.div>
 
-      {/* Navigation */}
-      <motion.nav
-        variants={fadeIn}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        transition={{ delay: 0.1 }}
-      >
-        <h3 className="footer-title">เมนู</h3>
-        <a href="#services" className="link link-hover">บริการ</a>
-        <a href="#reviews" className="link link-hover">รีวิว</a>
-        <a href="#pricing" className="link link-hover">แพ็กเกจ</a>
-        <a href="#contact" className="link link-hover">ติดต่อ</a>
-      </motion.nav>
+        {/* Navigation */}
+        <motion.div
+          variants={sectionVariant}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
+          <h3 className="mb-3 font-semibold">เมนู</h3>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <Link href="#services" className="link-hover link">
+                บริการ
+              </Link>
+            </li>
+            <li>
+              <Link href="#reviews" className="link-hover link">
+                รีวิว
+              </Link>
+            </li>
+            <li>
+              <Link href="#pricing" className="link-hover link">
+                แพ็กเกจ
+              </Link>
+            </li>
+            <li>
+              <Link href="#contact" className="link-hover link">
+                ติดต่อ
+              </Link>
+            </li>
+          </ul>
+        </motion.div>
 
-      {/* Resources */}
-      <motion.nav
-        variants={fadeIn}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-      >
-        <h3 className="footer-title">ทรัพยากร</h3>
-        <a href="/docs" className="link link-hover">Documentation</a>
-        <a href="/blog" className="link link-hover">Blog</a>
-        <a href="/faq" className="link link-hover">FAQ</a>
-        <a href="/support" className="link link-hover">Support</a>
-      </motion.nav>
+        {/* Resources */}
+        <motion.div
+          variants={sectionVariant}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        >
+          <h3 className="mb-3 font-semibold">ทรัพยากร</h3>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <Link href="/docs" className="link-hover link">
+                Documentation
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="link-hover link">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="/faq" className="link-hover link">
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link href="/support" className="link-hover link">
+                Support
+              </Link>
+            </li>
+          </ul>
+        </motion.div>
 
-      {/* Contact + Socials */}
-      <motion.nav
-        variants={fadeIn}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        transition={{ delay: 0.3 }}
-      >
-        <h3 className="footer-title">ติดต่อเรา</h3>
-        <p className="flex items-center gap-2 text-sm">
-          <Mail className="w-4 h-4" /> support@myapp.com
-        </p>
-        <p className="flex items-center gap-2 text-sm">
-          <Phone className="w-4 h-4" /> 02-123-4567
-        </p>
-        <div className="flex gap-4 mt-3">
-          <motion.a
-            whileHover={{ scale: 1.2 }}
-            href="#"
-            className="hover:text-primary"
-          >
-            <Facebook className="w-5 h-5" />
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.2 }}
-            href="#"
-            className="hover:text-primary"
-          >
-            <Twitter className="w-5 h-5" />
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.2 }}
-            href="#"
-            className="hover:text-primary"
-          >
-            <Instagram className="w-5 h-5" />
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.2 }}
-            href="#"
-            className="hover:text-primary"
-          >
-            <Linkedin className="w-5 h-5" />
-          </motion.a>
-        </div>
-      </motion.nav>
+        {/* Contact */}
+        <motion.div
+          variants={sectionVariant}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          <h3 className="mb-3 font-semibold">ติดต่อเรา</h3>
+          <ul className="space-y-2 text-sm">
+            <li className="flex items-center gap-2">
+              <Mail className="h-4 w-4" /> support@myapp.com
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone className="h-4 w-4" /> 02-123-4567
+            </li>
+          </ul>
+
+          {/* Social Links */}
+          <div className="mt-4 flex gap-4">
+            {[
+              { icon: Facebook, href: '#', label: 'Facebook' },
+              { icon: Twitter, href: '#', label: 'Twitter' },
+              { icon: Instagram, href: '#', label: 'Instagram' },
+              { icon: Linkedin, href: '#', label: 'LinkedIn' },
+            ].map(({ icon: Icon, href, label }, i) => (
+              <motion.a
+                key={i}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary"
+                whileHover={{ scale: 1.15 }}
+              >
+                <Icon className="h-5 w-5" />
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+      </div>
 
       {/* Bottom bar */}
-      <motion.div
-        className="w-full col-span-4 mt-6 border-t border-base-300 pt-4 text-center text-xs text-base-content/60"
-        variants={fadeIn}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        transition={{ delay: 0.4 }}
-      >
+      <div className="border-t border-base-300 py-6 text-center text-xs text-base-content/60 dark:border-gray-700">
         © {new Date().getFullYear()} MyApp. สงวนลิขสิทธิ์
-      </motion.div>
+      </div>
     </footer>
   )
 }

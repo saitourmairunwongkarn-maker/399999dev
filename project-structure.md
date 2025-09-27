@@ -1,15 +1,29 @@
-# Project Export
+# Project Structure
 
-_Exported at: **2025-09-27 19:54:06**_
+_Exported at: **2025-09-28 02:12:42**_
 
-## 📂 Project Structure (app, depth=10)
+## 📂 Project Files
 
 ```
-app
-├── api
-│   └── announcement
-│       └── route.js
-├── component
+.
+├── .NOTE.md
+├── .editorconfig
+├── .env.local
+├── .gitignore
+├── CONTRIBUTING.md
+├── README.md
+├── app
+│   ├── api
+│   │   └── announcement
+│   │       └── route.js
+│   ├── error.jsx
+│   ├── globals.css
+│   ├── layout.jsx
+│   ├── loading.jsx
+│   ├── not-found.jsx
+│   ├── page.jsx
+│   └── sitemap.js
+├── components
 │   ├── Announcement.jsx
 │   ├── CTA.jsx
 │   ├── Features.jsx
@@ -17,105 +31,72 @@ app
 │   ├── Header.jsx
 │   ├── Hero.jsx
 │   ├── Navbar.jsx
+│   ├── Review
+│   │   └── ReviewSection.jsx
 │   ├── Review.jsx
 │   └── Service
 │       ├── Service.jsx
 │       ├── ServiceCard.jsx
 │       └── ServiceSection.jsx
 ├── data
-├── globals.css
-├── layout.jsx
-├── og
-│   └── page.jsx
-├── page.jsx
-└── upload
-    └── page.jsx
+│   └── announcements.json
+├── eslint.config.js
+├── jsconfig.json
+├── next.config.js
+├── package.json
+├── pnpm-lock.yaml
+├── postcss.config.js
+├── prettier.config.js
+├── project-structure.md
+├── public
+│   ├── Review
+│   │   ├── review1.webp
+│   │   ├── review3.webp
+│   │   ├── review4.webp
+│   │   └── review4.webp (2)
+│   ├── Service
+│   │   ├── service1.webp
+│   │   ├── service10.webp
+│   │   ├── service2.webp
+│   │   ├── service3.webp
+│   │   ├── service4.webp
+│   │   ├── service5.webp
+│   │   ├── service6.webp
+│   │   ├── service7.webp
+│   │   ├── service8.webp
+│   │   └── service9.webp
+│   ├── data
+│   │   └── review.json
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── hero-mockup.png
+│   ├── manifest.json
+│   ├── next.svg
+│   ├── robots.txt
+│   ├── vercel.svg
+│   └── window.svg
+├── scripts
+│   ├── backup.sh
+│   └── export-structure.sh
+├── tailwind.config.js
+└── tsconfig.json
 
-8 directories, 17 files
+13 directories, 62 files
 ```
 
-## 📂 Project Structure (public, depth=10)
-
-```
-public
-├── Service
-│   ├── service1.webp
-│   ├── service10.webp
-│   ├── service2.webp
-│   ├── service3.webp
-│   ├── service4.webp
-│   ├── service5.webp
-│   ├── service6.webp
-│   ├── service7.webp
-│   ├── service8.webp
-│   └── service9.webp
-├── file.svg
-├── globe.svg
-├── hero-mockup.png
-├── next.svg
-├── vercel.svg
-└── window.svg
-
-2 directories, 16 files
-```
-
-## 📄 next.config.js
-
-```
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,   // ตรวจจับปัญหา React ตอน Dev
-  swcMinify: true,         // เปิด Minify ด้วย SWC ให้ build เร็วขึ้น
-
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**", // ปล่อยทุก domain (ควรระบุ domain จริงใน Production)
-      },
-    ],
-    formats: ["image/avif", "image/webp"], // ใช้ฟอร์แมตรูปที่เบาและคม
-  },
-
-  experimental: {
-    appDir: true,          // ใช้ App Router (Next.js 13+)
-  },
-
-  typescript: {
-    ignoreBuildErrors: false, // บังคับแก้ Error TS ก่อน build
-  },
-
-  eslint: {
-    ignoreDuringBuilds: false, // บังคับแก้ Error ESLint ก่อน build
-  },
-}
-
-module.exports = nextConfig```
-
-## 📄 jsconfig.json
-
-```
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["app/*"]
-    }
-  }
-}```
-
-## 📄 package.json
+## package.json
 
 ```
 {
   "name": "devbaanban",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --fix",
     "format": "prettier --write ."
   },
   "dependencies": {
@@ -124,143 +105,257 @@ module.exports = nextConfig```
     "lucide-react": "^0.544.0",
     "next": "latest",
     "next-cloudinary": "^6.16.0",
+    "next-themes": "^0.4.6",
     "react": "latest",
     "react-dom": "latest",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "0.4.2",
-    "@tailwindcss/forms": "0.5.7",
-    "@tailwindcss/typography": "0.5.10",
-    "@types/react": "19.1.13",
+    "@eslint/js": "^9.36.0",
+    "@next/eslint-plugin-next": "^15.5.4",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/react": "^19.1.13",
     "autoprefixer": "^10.4.19",
-    "eslint": "^8.0.0",
-    "eslint-config-next": "latest",
-    "eslint-plugin-tailwindcss": "^3.0.0",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-tailwindcss": "^3.18.2",
+    "globals": "^16.4.0",
     "postcss": "^8.4.38",
-    "prettier": "^3.0.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^3.4.3"
   }
-}```
-
-## 📄 NOTE.md
+}
 
 ```
-TEST ```
 
-## 📄 README.md
-
-```
-Test 
-```
-
-## 📄 .gitignore
+## next.config.js
 
 ```
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+    formats: ['image/avif', 'image/webp'],
+  },
+  experimental: {
+    appDir: true,
+  },
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+}
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+export default nextConfig
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
 ```
 
-## 📄 tailwind.config.js
+## jsconfig.json
+
+```
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}
+
+```
+
+## tailwind.config.js
 
 ```
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,jsx,ts,tsx}",
-    "./components/**/*.{js,jsx,ts,tsx}",
-    "./pages/**/*.{js,jsx,ts,tsx}",
-    "./src/**/*.{js,jsx,ts,tsx}"
+    './app/**/*.{js,jsx,ts,tsx}',
+    './components/**/*.{js,jsx,ts,tsx}',
+    './pages/**/*.{js,jsx,ts,tsx}',
+    './src/**/*.{js,jsx,ts,tsx}',
   ],
-  darkMode: "class", // ใช้ class คุม Dark Mode (เช่น <html class="dark">)
+  darkMode: 'class',
   theme: {
     extend: {
       container: {
         center: true,
-        padding: "1rem",
+        padding: {
+          DEFAULT: '1rem',
+          sm: '1.5rem',
+          lg: '2rem',
+          xl: '2.5rem',
+        },
         screens: {
-          sm: "640px",
-          md: "768px",
-          lg: "1024px",
-          xl: "1280px",
-          "2xl": "1536px",
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1280px',
+          '2xl': '1536px',
         },
       },
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui"],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+      },
+      borderRadius: {
+        xl: '0.75rem', // ปรับจาก 2xl → ให้นิ่งกว่า ไม่แฟนซีเกิน
+      },
+      boxShadow: {
+        soft: '0 4px 10px rgba(0,0,0,0.08)', // เงา soft professional
       },
     },
   },
   safelist: [
-    // DaisyUI themes
-    "business",
-    "light",
-    "dark",
-
-    // Animate classes
-    "animate-spin",
-    "animate-ping",
-    "animate-bounce",
-    "animate-pulse",
-
-    // Text & bg colors (กัน purge runtime class หาย)
+    'business',
+    'light',
+    'dark',
+    'animate-spin',
+    'animate-ping',
+    'animate-bounce',
+    'animate-pulse',
     {
-      pattern: /(bg|text|border|shadow)-(primary|secondary|accent|neutral|info|success|warning|error)/,
+      pattern:
+        /(bg|text|border|shadow)-(primary|secondary|accent|neutral|info|success|warning|error)/,
     },
   ],
   plugins: [
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/aspect-ratio"),
-    require("tailwindcss-animate"),
-    require("daisyui"),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+    require('tailwindcss-animate'),
+    require('daisyui'),
   ],
   daisyui: {
-    themes: ["business", "light", "dark"],
-    darkTheme: "dark", // theme ค่าเริ่มต้นเมื่อเป็น dark mode
+    themes: [
+      {
+        mytheme: {
+          // 🎨 Corporate palette
+          primary: '#1E3A8A', // Navy (Business trust)
+          secondary: '#64748B', // Slate Gray (Neutral support)
+          accent: '#0D9488', // Teal (Modern accent)
+          neutral: '#1E293B', // Dark slate (Backgrounds/Dark mode base)
+          'base-100': '#F9FAFB', // Light gray background
+          info: '#0284C7',
+          success: '#16A34A',
+          warning: '#F59E0B',
+          error: '#DC2626',
+        },
+      },
+      'light',
+      'dark',
+    ],
+    darkTheme: 'dark',
     base: true,
     styled: true,
     utils: true,
     logs: false,
-    themeRoot: ":root", // กำหนดตัวแปร theme ไว้ที่ root
+    themeRoot: ':root',
   },
-};```
+}
+
+```
+
+## tsconfig.json
+
+```
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.js", "**/*.jsx"],
+  "exclude": ["node_modules"]
+}
+```
+
+## 🌐 public/manifest.json
+
+```json
+{
+  "name": "Devbaanban",
+  "short_name": "Devbaanban",
+  "description": "Modern business web app built with Next.js, TailwindCSS, and DaisyUI.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F9FAFB",
+  "theme_color": "#1E3A8A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
+```
+
+## 🤖 public/robots.txt
+
+```
+User-agent: *
+Allow: /
+
+Sitemap: https://yourdomain.com/sitemap.xml
+```
+
+## ✅ Project Setup Checklist
+- [x] Project structure exported
+- [x] ESLint (Flat Config) with:
+  - [x] @eslint/js
+  - [x] eslint-plugin-react
+  - [x] eslint-plugin-react-hooks
+  - [x] eslint-plugin-tailwindcss
+  - [x] @next/eslint-plugin-next
+  - [x] eslint-plugin-prettier
+- [x] Prettier with tailwindcss plugin
+- [x] TailwindCSS configured
+- [x] Next.js config updated (images, experimental, eslint, ts)
+- [x] Package.json scripts: dev, build, start, lint, format
+- [x] `pnpm lint` works without errors
+- [x] `pnpm format` works without errors
+- [x] tsconfig.json exported
+- [x] manifest.json exported
+- [x] robots.txt exported

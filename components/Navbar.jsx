@@ -1,39 +1,40 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
+import { Menu, X, Building2 } from 'lucide-react'
 
 const navLinks = [
-  { href: "/", label: "หน้าแรก" },
-  { href: "/#features", label: "จุดเด่น" },
-  { href: "/#services", label: "บริการ" },
-  { href: "/#reviews", label: "รีวิว" },
-  { href: "/#contact", label: "ติดต่อ" }, // ✅ ลิงก์ไป CTA.jsx
-];
+  { href: '/', label: 'หน้าแรก' },
+  { href: '/#features', label: 'จุดเด่น' },
+  { href: '/#services', label: 'บริการ' },
+  { href: '/#reviews', label: 'รีวิว' },
+  { href: '/#contact', label: 'ติดต่อ' }, // ✅ CTA section
+]
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 shadow-sm">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <header className="fixed left-0 top-0 z-50 w-full border-b bg-base-100/80 shadow-soft backdrop-blur-md dark:bg-neutral/80">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-bold text-indigo-600 dark:text-indigo-400"
+          className="flex items-center gap-2 text-2xl font-bold text-primary"
         >
-          MyApp
+          <Building2 className="h-6 w-6" />
+          <span>MyApp</span>
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                className="text-gray-700 transition-all duration-200 hover:text-primary dark:text-gray-200 dark:hover:text-primary"
               >
                 {link.label}
               </Link>
@@ -41,9 +42,19 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* CTA Button */}
+        <div className="hidden md:block">
+          <Link
+            href="#contact"
+            className="btn btn-primary btn-sm rounded-lg shadow-soft"
+          >
+            เริ่มต้นเลย
+          </Link>
+        </div>
+
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-700 dark:text-gray-200"
+          className="text-gray-700 transition-colors hover:text-primary dark:text-gray-200 dark:hover:text-primary md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -58,8 +69,8 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white dark:bg-gray-900 shadow-md"
+            transition={{ duration: 0.25 }}
+            className="border-t bg-base-100 shadow-md dark:bg-neutral md:hidden"
           >
             <ul className="flex flex-col items-center gap-6 py-6">
               {navLinks.map((link) => (
@@ -67,16 +78,25 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-lg"
+                    className="text-lg text-gray-700 transition-all duration-200 hover:text-primary dark:text-gray-200 dark:hover:text-primary"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="#contact"
+                  onClick={() => setMenuOpen(false)}
+                  className="btn btn-primary btn-sm rounded-lg shadow-soft"
+                >
+                  เริ่มต้นเลย
+                </Link>
+              </li>
             </ul>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
-  );
+  )
 }

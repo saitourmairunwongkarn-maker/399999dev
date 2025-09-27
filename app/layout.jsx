@@ -1,61 +1,31 @@
-import "./globals.css"
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/Footer"
-import Announcement from "@/components/Announcement"
+import './globals.css'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export const metadata = {
-  title: "MyApp",
-  description: "Business diary template solution",
-  keywords: ["Business", "Diary", "Template", "Next.js", "Tailwind"],
-  authors: [{ name: "MyApp Team" }],
-  themeColor: "#2563eb",
-  openGraph: {
-    title: "MyApp",
-    description: "Business diary template solution",
-    url: "https://myapp.com",
-    siteName: "MyApp",
-    images: [
-      {
-        url: "/og-image.png", // 👉 วางไฟล์ไว้ใน public/
-        width: 1200,
-        height: 630,
-        alt: "MyApp Preview",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "MyApp",
-    description: "Business diary template solution",
-    creator: "@myapp", // 👉 ใส่ handle Twitter ถ้ามี
-    images: ["/og-image.png"],
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
+  title: 'Devbaanban - Modern Business Web App',
+  description:
+    'Landing page created with Next.js, TailwindCSS, DaisyUI, and Supabase Auth.',
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="flex flex-col min-h-screen antialiased bg-gray-50 text-gray-900">
-        {/* 🔔 แบนเนอร์ประกาศ */}
-        <Announcement />
+    <html lang="en">
+      <body className="flex min-h-screen flex-col bg-white text-gray-900 dark:bg-gray-950 dark:text-white">
+        {/* 🔝 Header / Navbar */}
+        <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-950/80">
+          <Navbar />
+        </header>
 
-        {/* 🚀 Navbar */}
-        <Navbar />
-
-        {/* 📄 Main Content */}
-        <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* 📄 Main content */}
+        <main className="flex-1 container mx-auto px-4 py-6 sm:px-6 lg:px-8">
           {children}
         </main>
 
-        {/* ⚡ Footer */}
-        <Footer />
+        {/* 🔻 Footer */}
+        <footer className="border-t bg-gray-100 dark:border-gray-800 dark:bg-gray-900">
+          <Footer />
+        </footer>
       </body>
     </html>
   )
